@@ -2,6 +2,8 @@
 #include <string>
 #include "Date.h"
 
+enum status{ Assigned, Completed, Late};
+
 struct Node
 {
 	Node* next;
@@ -10,20 +12,20 @@ struct Node
 	
 };
 
-
 class Assignment
 {
 public:
-	Assignment(int status, string desc, Date due, Date assigned);
+	Assignment(string desc, Date due, Date assigned, status s = Assigned);
 	string getDesc(){ return desc; }
 	Date getDueDate(){ return due; }
-	int getStatus(){ return status; }
+	status getStatus(){ return s; }
 	void setDesc(string descr){ desc = descr; }
 	void setDueDate(Date dueWhen){ due = dueWhen; }
-	void setStatus(int SetStatus){ status = SetStatus; }
+	void setStatus(status SetStatus){ s = SetStatus; }
 
 private:
-	int status; // 1: assigned 2: completed 3: late
+	
+	status s;
 	string desc;
 	Date due;
 	Date assigned;
