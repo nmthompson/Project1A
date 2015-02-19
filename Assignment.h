@@ -5,15 +5,14 @@ class Assignment
 public:
 	string getDesc(){ return desc; }
 	Date getDueDate(){ return due; }
-	bool getStatus(){ return status; }
+	int getStatus(){ return status; }
 	void setDesc(string descr){ desc = descr; }
 	void setDueDate(Date dueWhen){ due = dueWhen; }
-	void setStatus(bool SetStatus){ status = SetStatus; }
-	void MarkLate(){ late = true; }
+	void setStatus(int SetStatus){ status = SetStatus; }
 
 private:
-	bool status; //Complete or Incomplete
+	int status; // 1: assigned 2: completed 3: late
 	string desc;
 	Date due;
-	bool late=false; //Switches to true after the due date passes.
+	Date assigned;
 };
