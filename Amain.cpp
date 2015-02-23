@@ -11,19 +11,23 @@ using namespace std;
 void iSort(list<Assignment>& the_list)
 {
 	list<Assignment>::iterator iter;
+	list<Assignment>::iterator _iter;
 	Assignment temp;
-	for (iter = the_list.begin(); iter != the_list.end(); iter++)
+	for (_iter = the_list.begin(); _iter != the_list.end(); _iter++)
 	{
+		iter = _iter; //Keeps the inside loop on track and lets us go back to where we left off if
+					  //something was out of order and we had to take it back to recorrect it.
 		if (iter->getAssignedDate() > iter++->getAssignedDate())
 		{
 			temp = *iter;
+			remove(*iter, the_list);
 			while (iter->getAssignedDate() > iter++->getAssignedDate())
 			{
 				iter--;
 				if (iter == the_list.begin())
 					break;
 			}
-			the_list.insert(temp);
+			add(temp, the_list);
 		}	
 	}
 }
@@ -34,11 +38,13 @@ void add(Assignment assignment, list<Assignment>& the_list) // Add assignment to
 {
 	the_list.push_back(assignment);
 	//Sort method here?
+		//No, would cause in infinite loop because I call this function in the sort function. -KD
 }
 
 void remove(Assignment& assignment, list<Assignment>& the_list) // Remove assignment from list 
 {
 	the_list.remove(assignment);
+	//Don't call sort here, for the same reason ass the add function. -KD
 }
 
 bool& operator ==(Assignment& lhs, Assignment& rhs) // Used for determining equality of assignments
