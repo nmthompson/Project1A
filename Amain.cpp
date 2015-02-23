@@ -13,6 +13,7 @@ void iSort(list<Assignment>& the_list)
 	list<Assignment>::iterator iter;
 	list<Assignment>::iterator _iter;
 	Assignment temp;
+	Assignment nextTemp;
 	for (_iter = the_list.begin(); _iter != the_list.end(); _iter++)
 	{
 		iter = _iter; //Keeps the inside loop on track and lets us go back to where we left off if
@@ -20,11 +21,12 @@ void iSort(list<Assignment>& the_list)
 		if (iter->getAssignedDate() > iter++->getAssignedDate())
 		{
 			temp = *iter;
+			nextTemp = *iter++;
 			remove(*iter, the_list);
-			while (iter->getAssignedDate() > iter++->getAssignedDate())
+			while (temp.getAssignedDate() > iter++->getAssignedDate()) //Something is wrong here
 			{
 				iter--;
-				if (iter == the_list.begin())
+				if (iter == the_list.begin()) //If the assignment is the earliest assigned on we have seen so far.
 					break;
 			}
 			add(temp, the_list);
