@@ -6,7 +6,29 @@
 #include <iostream>
 using namespace std;
 
-// NEED A SORT METHOD
+// Doubly linked list insertion sort method //
+ 
+void iSort(list<Assignment>& the_list)
+{
+	list<Assignment>::iterator iter;
+	Assignment temp;
+	for (iter = the_list.begin(); iter != the_list.end(); iter++)
+	{
+		if (iter->getAssignedDate() > iter++->getAssignedDate())
+		{
+			temp = *iter;
+			while (iter->getAssignedDate() > iter++->getAssignedDate())
+			{
+				iter--;
+				if (iter == the_list.begin())
+					break;
+			}
+			the_list.insert(temp);
+		}	
+	}
+}
+
+//////////////////////////////////////////
 
 void add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
 {
