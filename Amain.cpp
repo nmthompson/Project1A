@@ -34,6 +34,15 @@ void iSort(list<Assignment>& the_list)
 	}
 }
 
+// Tring out the pre built sort function for the list class
+// the_list.sort(compare_date);
+bool compare_date(Assignment &A, Assignment &B)
+{
+	if (A.getAssignedDate() > B.getAssignedDate())
+		return false;
+	else if (A.getAssignedDate < B.getAssignedDate())
+		return true;
+}
 //////////////////////////////////////////
 
 void add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
