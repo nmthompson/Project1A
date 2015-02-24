@@ -1,14 +1,34 @@
 #pragma once
 #include <string>
+#include <iostream>
 #include "Date.h"
 
 enum status {Assigned, Completed, Late};
+
+status statConvert(string& str) // Convert status string to status type
+{
+	if (str == "assigned")
+	{
+        return Assigned;
+	}
+	else if (str == "completed")
+	{
+        return Completed;
+	}
+	else if (str == "late")
+	{
+	    return Late;
+	}
+	else
+	{
+	   return Assigned; // Assumes invalid status value is Assigned
+	}
+}
 
 class Assignment
 {
 public:
 	Assignment(string desc, Date due, Date assigned, status s = Assigned){}
-	Assignment(){ s = Assigned; desc = ""; due = NULL; assigned = NULL; completed = NULL; }
 	string getDesc(){ return desc; }
 	Date getAssignedDate() { return assigned; }
 	Date getDueDate(){ return due; }
