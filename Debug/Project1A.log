@@ -1,0 +1,484 @@
+﻿Build started 2/24/2015 2:47:15 PM.
+     1>Project "\\kc.umkc.edu\kc-users\home\n\nmtd63\My Documents\Visual Studio 2010\Projects\Project1A\Project1A\Project1A.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "\\kc.umkc.edu\kc-users\home\n\nmtd63\My Documents\Visual Studio 2010\Projects\Project1A\Debug\".
+       InitializeBuildStatus:
+         Creating "Debug\Project1A.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Amain.cpp UserInterface.cpp
+         UserInterface.cpp
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(43): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(45): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(59): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(73): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(17): error C2039: 'uiLoop' : is not a member of '`global namespace''
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(38): error C2679: binary '<<' : no operator found which takes a right-hand operand of type 'Assignment' (or there is no acceptable conversion)
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(679): could be 'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(726): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(764): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(811): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(937): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const signed char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(944): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,signed char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(951): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const unsigned char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(958): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,unsigned char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(968): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>,Assignment>(std::basic_ostream<_Elem,_Traits> &&,_Ty)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ty=Assignment
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(1085): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const std::error_code &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(186): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ostream<_Elem,_Traits> &(__cdecl *)(std::basic_ostream<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(192): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ios<_Elem,_Traits> &(__cdecl *)(std::basic_ios<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(199): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(206): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::_Bool)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(226): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(260): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(280): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(305): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(325): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(345): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(366): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(__int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(386): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned __int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(407): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(float)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(427): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(447): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(467): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(const void *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(487): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_streambuf<_Elem,_Traits> *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 while trying to match the argument list '(std::ostream, Assignment)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(43): error C2679: binary '<<' : no operator found which takes a right-hand operand of type 'Assignment' (or there is no acceptable conversion)
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(679): could be 'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(726): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(764): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(811): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(937): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const signed char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(944): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,signed char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(951): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const unsigned char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(958): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,unsigned char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(968): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>,Assignment>(std::basic_ostream<_Elem,_Traits> &&,_Ty)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ty=Assignment
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(1085): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const std::error_code &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(186): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ostream<_Elem,_Traits> &(__cdecl *)(std::basic_ostream<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(192): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ios<_Elem,_Traits> &(__cdecl *)(std::basic_ios<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(199): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(206): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::_Bool)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(226): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(260): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(280): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(305): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(325): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(345): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(366): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(__int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(386): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned __int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(407): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(float)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(427): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(447): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(467): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(const void *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\ostream(487): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_streambuf<_Elem,_Traits> *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 while trying to match the argument list '(std::ostream, Assignment)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(71): error C2678: binary '==' : no operator found which takes a left-hand operand of type 'Assignment' (or there is no acceptable conversion)
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\exception(470): could be 'bool std::operator ==(const std::_Exception_ptr &,const std::_Exception_ptr &)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\exception(475): or       'bool std::operator ==(std::_Null_type,const std::_Exception_ptr &)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\exception(481): or       'bool std::operator ==(const std::_Exception_ptr &,std::_Null_type)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\system_error(408): or       'bool std::operator ==(const std::error_code &,const std::error_condition &)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\system_error(416): or       'bool std::operator ==(const std::error_condition &,const std::error_code &)'
+                 while trying to match the argument list '(Assignment, Assignment)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(77): error C3861: 'add': identifier not found
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(112): error C2065: 'late_count' : undeclared identifier
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(118): error C3861: 'add': identifier not found
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(119): error C2660: 'std::remove' : function does not take 2 arguments
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\userinterface.cpp(178): error C2065: 'late_count' : undeclared identifier
+         Amain.cpp
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(26): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(29): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(35): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(43): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(44): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(45): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(46): error C2668: 'std::to_string' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(688): could be 'std::string std::to_string(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(680): or       'std::string std::to_string(_ULonglong)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(672): or       'std::string std::to_string(_Longlong)'
+                 while trying to match the argument list '(const int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(59): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(73): warning C4482: nonstandard extension used: enum 'DateFormat' used in qualified name
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\assignment.h(11): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)
+                 \\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\date.h(305): could be 'Date &Date::operator =(const Date &)'
+                 while trying to match the argument list '(Date, int)'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(25): error C2660: 'std::remove' : function does not take 2 arguments
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(32): error C3861: 'add': identifier not found
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::list<_Ty,_Ax> &,const std::list<_Ty,_Ax> &)' : could not deduce template argument for 'const std::list<_Ty,_Ax> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\list(1588) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(243) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const _Elem *,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const _Elem *' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(233) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(223) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::unique_ptr<_Ty,_Dx> &,const std::unique_ptr<_Ty2,_Dx2> &)' : could not deduce template argument for 'const std::unique_ptr<_Ty,_Dx> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\memory(2582) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\xutility(1368) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::_Revranit<_RanIt,_Base> &,const std::_Revranit<_RanIt2,_Base2> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\xutility(1191) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2784: 'bool std::operator <(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)' : could not deduce template argument for 'const std::pair<_Ty1,_Ty2> &' from 'overloaded-function'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\utility(318) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(43): error C2677: binary '<' : no global operator found which takes type 'Date' (or there is no acceptable conversion)
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(66): warning C4172: returning address of local variable or temporary
+     1>\\kc.umkc.edu\kc-users\home\n\nmtd63\my documents\visual studio 2010\projects\project1a\project1a\amain.cpp(72): warning C4172: returning address of local variable or temporary
+         Generating Code...
+     1>Done Building Project "\\kc.umkc.edu\kc-users\home\n\nmtd63\My Documents\Visual Studio 2010\Projects\Project1A\Project1A\Project1A.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.22
