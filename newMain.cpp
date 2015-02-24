@@ -9,6 +9,7 @@ using namespace std;
 
 // Doubly linked list insertion sort method //
  
+
 void iSort(list<Assignment>& the_list)
 {
 	list<Assignment>::iterator iter;
