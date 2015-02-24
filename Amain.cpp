@@ -3,15 +3,28 @@
 #include "Assignment.h"
 #include <fstream>
 #include <list>
-#include <iostream>
 using namespace std;
 
 // NEED A SORT METHOD
 
-void add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
+void add(Assignment assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter) // Add assignment to a list
 {
-	the_list.push_back(assignment);
-	//Sort method here?
+	if (assignment.getDueDate() > assignment.getAssignedDate()) // If assignment dates make sense
+	{
+        for (iter = the_list.begin(); iter != the_list.end(); iter++)
+		{
+		    if (*iter == assignment) // Same assignment already in list; don't add
+			{
+			    cout << "Assignment already in list" << endl;
+			}
+		}
+		the_list.push_back(assignment); // Assignment added to assigned list
+		// Sort method here?		
+	}
+	else
+	{
+	    cout << "Assignment due date before or on assigned date" << endl;
+	}
 }
 
 void remove(Assignment& assignment, list<Assignment>& the_list) // Remove assignment from list 
@@ -39,25 +52,79 @@ ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the dis
     return out;  
 }
 
+Assignment createAssignment(string& assign_str) // Create an Assignment out of a string
+{
+    String_Tokenizer parse_assign(assign_str, ", "); // Create tokenizer for splitting assignment data
+
+	string due, descript, assigned, stat_str;
+	status the_stat;
+    due = parse_assign.next_token();
+    descript = parse_assign.next_token();
+	assigned = parse_assign.next_token();
+	stat_str = parse_assign.next_token();
+	statConvert(stat_str); // Convert status to status type 
+	
+	try // Try block needed to throw exception for any invalid dates
+	{
+	    Date dueDate(due); // Create Dates out of strings
+	    Date assignDate(assigned);
+
+	    Assignment assignment(descript, dueDate, assignDate);
+		return assignment;
+	}
+	catch (const exception& e)
+	{
+	    cout << e.what() << endl; // Prints "invalid date"
+	}
+}
+
 int main()
 {
 	ifstream fin; 
 	ofstream fout;
 	list<Assignment> assigned_list; // List for assigned
 	list<Assignment> completed_list; // List for completed
-	int choice; // Display options
-	int late_count = 0; // Count number of late assignments
-
-	fin.open("assingment.txt"); 
-	if (fin.fail()) // If file can't be opened
-	{
-	    exit(1);
-	}
-	fout.open("out_assignment.txt"); // Create a file to be written to
-
 	list<Assignment>::iterator assigned_iter;
 	list<Assignment>::iterator completed_iter;
+	int choice; // Display options
+	int late_count = 0; // Count number of late assignments
+	char y_or_n; // For assignment file prompt
+	string file_to_read; // File to read in
 
+	cout << "Do you want a file of assignments to be read? (Y/N)" << endl;
+	cin >> y_or_n;
+	if (toupper(y_or_n) == 'Y')
+	{
+		cout << "Type in the file name: " << endl;
+		cin >> file_to_read;
+		fin.open(file_to_read);
+		if (fin.fail()) // If file failed to open/does not exist
+		{
+			exit(1);
+		}
+		string line;
+		while (getline(fin, line)) // While a line is being read in
+		{
+			Assignment assignment = createAssignment(line);
+			if (assignment.getStatus() == Assigned)
+			{
+				add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
+			}
+			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
+			{
+				add(assignment, completed_list, completed_iter); // Try adding to completed list
+			}
+			else
+			{
+				add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
+			}
+		}
+	}
+	
+	fin.close();
+	fout.open("out_assignment.txt"); // Create a file to be written to
+
+	// Options display
 	while (choice != 6) // 6 is choice "quit"
 	{
 	    cout << "What would you like to do? (Enter a number.)" << endl;
@@ -78,56 +145,31 @@ int main()
 			{
 				cout << *assigned_iter << " "; 
 			}
+			cout << endl;
 			cout << "Completed assignments: " << endl;
 			for (completed_iter = completed_list.begin(); completed_iter != completed_list.end(); completed_iter++)
 			{
 				cout << *completed_iter << " "; 
 			}
+			cout << endl;
 			break;
 		case 2: // Add an assignment to either the assigned or completed list
 			{
 			string str_assign;
 			cout << "Type an assignment: " << endl;
 			cin >> str_assign;
-			String_Tokenizer parse_assign(str_assign, ", "); // Create tokenizer for splitting assignment data
-
-			string due, descript, assigned, stat_str;
-			due = parse_assign.next_token();
-			descript = parse_assign.next_token();
-			assigned = parse_assign.next_token();
-			stat_str = parse_assign.next_token();
-			// Create Dates out of strings
-			try // Try block needed to throw exception for any invalid dates
+			Assignment assignment = createAssignment(str_assign);
+			if (assignment.getStatus() == Assigned)
 			{
-			    Date dueDate(due); 
-			    Date assignDate(assigned);
-
-			    Assignment assignment(descript, dueDate, assignDate);
-				if (assignment.getDueDate() > assignment.getAssignedDate()) // If assignment dates make sense
-				{
-
-					for (assigned_iter = assigned_list.begin(); assigned_iter != assigned_list.end(); 
-					    assigned_iter++)
-					{
-					    if (*assigned_iter == assignment) // Same assignment already in list; don't add
-						{
-							cout << "Assignment already in list" << endl;
-							continue;
-						}
-					}
-					add(assignment, assigned_list); // Assignment added to assigned list
-					
-				}
-				else
-				{
-				    cout << "Assignment dates don't make sense" << endl;
-					continue;
-				}
+				add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
 			}
-			catch (const exception& e)
+			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
 			{
-				cout << e.what() << endl; // Prints "invalid date"
-				continue; // Will the program continue past this exception handle?
+				add(assignment, completed_list, completed_iter); // Try adding to completed list
+			}
+			else
+			{
+				add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
 			}
 			break;
 			}
@@ -156,7 +198,7 @@ int main()
 						{
 							assigned_iter->setStatus(Completed); // Otherwise it is simply completed
 						}
-						add((*assigned_iter), completed_list); // Add to completed list
+						add((*assigned_iter), completed_list, completed_iter); // Add to completed list
 						remove((*assigned_iter), assigned_list); // Remove from assigned list
 					    break;
 				    }
@@ -217,6 +259,7 @@ int main()
 			
 		case 5: // Count late assignments
 			cout << "There are " << late_count << " late assignments" << endl;
+			break;
 		case 6: // Quit program
 			continue;
 		default: 
