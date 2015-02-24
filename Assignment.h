@@ -29,7 +29,6 @@ class Assignment
 {
 public:
 	Assignment(string desc, Date due, Date assigned, status s = Assigned){}
-	Assignment(){ s = Assigned; desc = ""; due = NULL; assigned = NULL; completed = NULL; }
 	string getDesc(){ return desc; }
 	Date getAssignedDate() { return assigned; }
 	Date getDueDate(){ return due; }
