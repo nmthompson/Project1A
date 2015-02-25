@@ -6,8 +6,9 @@
 using namespace std;
 
 class UserInterface{
+	//I think my syntax might be off and my logic as a result for these getters and setters
 public:
-	UserInterface(int choice){
+	UserInterface(){
 	}
 	void setChoice(int user_choice){
 		choice = user_choice;
@@ -15,9 +16,17 @@ public:
 	int getChoice(){
 		return choice;
 	}
+	void setRead(char yes_or_no){
+		y_or_n = yes_or_no;
+	}
+	char getRead(){
+		return y_or_n;
+	}
 	void uiLoop(int choice);
+	void fileRead(char y_or_n);
 
 private:
 	int choice;
+	char y_or_n;
 };
 #endif

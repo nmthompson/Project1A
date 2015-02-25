@@ -16,6 +16,10 @@ list<Assignment>::iterator completed_iter;
 
 int late_count = 0;
 
+void::fileRead(char y_or_n){
+
+}
+
 void::uiLoop(int choice){
 	ifstream fin; 
 	ofstream fout;
