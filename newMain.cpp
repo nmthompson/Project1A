@@ -82,14 +82,8 @@ ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the dis
 
 int main()
 {
-
-	int choice;
 	cout << "Please select what you would like to do: " << endl;
-	cin >> choice;
-	UserInterface.uiLoop(choice); //no idea the syntax for C++ for executing an external class with a parameter. 
+	UserInterface uiLoop(); //no idea the syntax for C++ for executing an external class with a parameter. 
 									//java it's create an object of the class and then pass it a parameter to the desired function.
-
-	
-	
 	return 0;
 }

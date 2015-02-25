@@ -20,9 +20,10 @@ void::fileRead(char y_or_n){
 
 }
 
-void::uiLoop(int choice){
+void::uiLoop(){
 	ifstream fin; 
 	ofstream fout;
+	int choice;
 
 	fin.open("assingment.txt"); 
 	if (fin.fail()) // If file can't be opened
