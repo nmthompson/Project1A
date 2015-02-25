@@ -10,19 +10,19 @@ class UserInterface{
 public:
 	UserInterface(){
 	}
-	void setChoice(int user_choice){
-		choice = user_choice;
-	}
-	int getChoice(){
-		return choice;
-	}
+	//void setChoice(int user_choice){
+	//	choice = user_choice;
+	//}
+	//int getChoice(){
+	//	return choice;
+	//}
 	void setRead(char yes_or_no){
 		y_or_n = yes_or_no;
 	}
 	char getRead(){
 		return y_or_n;
 	}
-	void uiLoop(int choice);
+	void uiLoop();
 	void fileRead(char y_or_n);
 
 private:

@@ -14,7 +14,7 @@ void iSort(list<Assignment>& the_list)
 {
 	list<Assignment>::iterator iter;
 	list<Assignment>::iterator _iter;
-	Assignment temp;
+	Assignment temp;  
 	Assignment nextTemp;
 	for (_iter = the_list.begin(); _iter != the_list.end(); _iter++)
 	{
@@ -83,7 +83,9 @@ ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the dis
 int main()
 {
 	cout << "Please select what you would like to do: " << endl;
-	UserInterface uiLoop(); //no idea the syntax for C++ for executing an external class with a parameter. 
-									//java it's create an object of the class and then pass it a parameter to the desired function.
+	//Should just need to execute UI class function from main, all input/out will be handled by the UI class
+	UserInterface test;
+	test.uiLoop(); //no idea the syntax for C++ for executing an external class with a parameter. 
+							//java it's create an object of the class and then pass it a parameter to the desired function.
 	return 0;
 }

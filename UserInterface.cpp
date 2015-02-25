@@ -34,7 +34,6 @@ void::uiLoop(){
 
 	while (choice != 7) // 7 is choice "quit"
 	{
-	    cout << "What would you like to do? (Enter a number.)" << endl;
 	    cout << "1 Display current assignments" << endl;
 	    cout << "2 Add assignment" << endl;
 	    cout << "3 Complete assignment" << endl;
