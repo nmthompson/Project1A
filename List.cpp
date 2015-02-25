@@ -10,11 +10,52 @@ List::List(Assignment data)
 
 }
 
+List::List()
+{
+	head = NULL;
+	tail = NULL;
+}
+
 void List::push_on(Assignment data)
 {
-	node *temp = tail->next;
-	tail->prev = new node;
-	tail->prev->info = data;
-	tail->prev = tail;
+	node *temp = new node;
+	temp->info = data;
+	temp->next = tail;
+	temp->prev = NULL;
+	temp = tail;
+}
 
+Assignment List::push_off()
+{
+	node *temp = head;
+	head->prev = head;
+	head->next = NULL;
+	return temp->info;
+}
+
+void List::pop_on(Assignment data)
+{
+	node *temp = new node;
+	temp->info = data;
+	head->next = temp;
+	temp->prev = head;
+	head = temp;
+
+}
+
+Assignment List::pop_off()
+{
+	node *temp = tail;
+	tail = tail->next;
+	tail->prev = NULL;
+	return temp->info;
+
+}
+
+bool List::isEmpty()
+{
+	if (head == NULL&&tail == NULL)
+		return true;
+	else
+		return false;
 }
