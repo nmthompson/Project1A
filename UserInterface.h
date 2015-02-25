@@ -16,17 +16,13 @@ public:
 	//int getChoice(){
 	//	return choice;
 	//}
-	void setRead(char yes_or_no){
-		y_or_n = yes_or_no;
-	}
-	char getRead(){
-		return y_or_n;
-	}
+	//void setRead(char yes_or_no){
+	//	y_or_n = yes_or_no;
+	//}
+	//char getRead(){
+	//	return y_or_n;
+	//}
 	void uiLoop();
-	void fileRead(char y_or_n);
-
-private:
-	int choice;
-	char y_or_n;
+	void fileRead();
 };
 #endif

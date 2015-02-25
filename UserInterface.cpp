@@ -15,9 +15,37 @@ list<Assignment>::iterator assigned_iter;
 list<Assignment>::iterator completed_iter;
 
 int late_count = 0;
+string file_to_read; // File to read in
 
-void::fileRead(char y_or_n){
-
+void::fileRead(){
+	cout << "Type in the file name: " << endl;
+	cin >> file_to_read;
+	fin.open(file_to_read);
+		if (fin.fail()) // If file failed to open/does not exist
+		{
+			exit(1);
+		}
+		string line;
+		while (getline(fin, line)) // While a line is being read in
+		{
+			Assignment assignment = createAssignment(line);
+			if (assignment.getStatus() == Assigned)
+			{
+				add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
+			}
+			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
+			{
+				add(assignment, completed_list, completed_iter); // Try adding to completed list
+			}
+			else
+			{
+				add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
+			}
+		}
+	}
+	
+	fin.close();
+	fout.open("out_assignment.txt");
 }
 
 void::uiLoop(){
