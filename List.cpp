@@ -59,3 +59,18 @@ bool List::isEmpty()
 	else
 		return false;
 }
+
+void List::sort()
+{
+	node *temp = head;
+	while (temp->prev != NULL)
+	{
+		if (temp->info.getAssignedDate() < temp->prev->info.getAssignedDate())
+		{
+			//swap values
+		}
+		temp = temp->prev;
+
+		// There is no way that it is this simple. -KD
+	}
+}
