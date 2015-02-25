@@ -9,3 +9,12 @@ List::List(Assignment data)
 	*tail = start;
 
 }
+
+void List::push_on(Assignment data)
+{
+	node *temp = tail->next;
+	tail->prev = new node;
+	tail->prev->info = data;
+	tail->prev = tail;
+
+}
