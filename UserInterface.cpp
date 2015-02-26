@@ -11,9 +11,6 @@ using namespace std;
 list<Assignment> assigned_list; // List for assigned
 list<Assignment> completed_list; // List for completed
 
-list<Assignment>::iterator assigned_iter;
-list<Assignment>::iterator completed_iter;
-
 int late_count = 0;
 string file_to_read; // File to read in
 
@@ -82,7 +79,7 @@ ostream& operator <<(ostream out, Date& out_date) // Stream out the display data
 ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the display data of an Assignment
 {
 	out << out_assign.getDueDate() << out_assign.getDesc() << out_assign.getAssignedDate() << out_assign.getStatus();
-	return out;
+	return out; // Need to overload << operator to get it to work with the data types we are sending it.
 }
 
 
@@ -99,23 +96,19 @@ void UserInterface::fileRead(){
 		string line;
 		while (getline(fin, line)) // While a line is being read in
 		{
-
-
-
-
-			//Assignment assignment = createAssignment(line);
-			//if (assignment.getStatus() == Assigned)
-			//{
-			//	add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
-			//}
-			//else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
-			//{
-			//	add(assignment, completed_list, completed_iter); // Try adding to completed list
-			//}
-			//else
-			//{
-			//	add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
-			//}
+			Assignment assignment = createAssignment(line);
+			if (assignment.getStatus() == Assigned)
+			{
+				add(assignment, assigned_list); // Try adding to assigned list
+			}
+			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
+			{
+				add(assignment, completed_list); // Try adding to completed list
+			}
+			else
+			{
+				add(assignment, assigned_list); // Add to assigned by default without proper stat info
+			}
 		}
 
 	
@@ -129,7 +122,8 @@ void UserInterface::uiLoop(){
 	ifstream fin; 
 	ofstream fout;
 	int choice;
-
+	list<Assignment>::iterator assigned_iter;
+	list<Assignment>::iterator completed_iter;
 	fin.open("assingment.txt"); 
 	if (fin.fail()) // If file can't be opened
 	{
