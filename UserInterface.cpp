@@ -17,9 +17,54 @@ list<Assignment>::iterator completed_iter;
 int late_count = 0;
 string file_to_read; // File to read in
 
-void::fileRead(){
-	cout << "Type in the file name: " << endl;
+void add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
+{
+	list<Assignment>::iterator iter;
+	if (the_list.size() != 0)
+	{
+		for (iter = the_list.end(); iter != the_list.begin(); iter--)
+		{
+			if (assignment.getAssignedDate() > iter->getAssignedDate())
+			{
+				iter++;
+				the_list.insert(iter, assignment);
+				break;
+			}
+		}
+	}
+}
+
+void remove(Assignment& assignment, list<Assignment>& the_list) // Remove assignment from list 
+{
+	the_list.remove(assignment);
+}
+
+bool& operator ==(Assignment& lhs, Assignment& rhs) // Used for determining equality of assignments
+{
+	bool equal;
+	equal = (lhs.getAssignedDate() == rhs.getAssignedDate() && lhs.getDesc() == rhs.getDesc() &&
+		lhs.getDueDate() == rhs.getDueDate() && lhs.getStatus() == rhs.getStatus());
+	return equal;
+}
+
+ostream& operator <<(ostream out, Date& out_date) // Stream out the display data of a Date
+{
+	out << out_date.getMonth() << "-" << out_date.getDay() << "-" << out_date.getYear();
+	return out;
+}
+
+ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the display data of an Assignment
+{
+	out << out_assign.getDueDate() << out_assign.getDesc() << out_assign.getAssignedDate() << out_assign.getStatus();
+	return out;
+}
+
+
+void UserInterface::fileRead(){
+	std::cout << "Type in the file name: " << endl;
 	cin >> file_to_read;
+	ifstream fin;
+	ofstream fout;
 	fin.open(file_to_read);
 		if (fin.fail()) // If file failed to open/does not exist
 		{
@@ -28,27 +73,33 @@ void::fileRead(){
 		string line;
 		while (getline(fin, line)) // While a line is being read in
 		{
-			Assignment assignment = createAssignment(line);
-			if (assignment.getStatus() == Assigned)
-			{
-				add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
-			}
-			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
-			{
-				add(assignment, completed_list, completed_iter); // Try adding to completed list
-			}
-			else
-			{
-				add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
-			}
+
+
+
+
+			//Assignment assignment = createAssignment(line);
+			//if (assignment.getStatus() == Assigned)
+			//{
+			//	add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
+			//}
+			//else if (assignment.getStatus() == Completed || assignment.getStatus() == Late) 
+			//{
+			//	add(assignment, completed_list, completed_iter); // Try adding to completed list
+			//}
+			//else
+			//{
+			//	add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
+			//}
 		}
-	}
+
 	
 	fin.close();
 	fout.open("out_assignment.txt");
+
+
 }
 
-void::uiLoop(){
+void UserInterface::uiLoop(){
 	ifstream fin; 
 	ofstream fout;
 	int choice;

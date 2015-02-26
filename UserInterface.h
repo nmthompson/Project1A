@@ -1,5 +1,6 @@
 #include "Date.h"
 #include "Assignment.h"
+#include <iostream>
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 
