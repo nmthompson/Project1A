@@ -1,7 +1,7 @@
 #include "AssignmentManager.h"
 using namespace std;
 
-Assignment Assignment::createAssignment(string& assign_str) // Create an Assignment out of a string
+Assignment AssignmentManager::createAssignment(string& assign_str) // Create an Assignment out of a string
 {
     String_Tokenizer parse_assign(assign_str, ", "); // Create tokenizer for splitting assignment data
 
@@ -27,7 +27,7 @@ Assignment Assignment::createAssignment(string& assign_str) // Create an Assignm
 	}
 }
 
-void Assignment::add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
+void AssignmentManager::add(Assignment assignment, list<Assignment>& the_list) // Add assignment to a list
 {
 	list<Assignment>::iterator iter;
 	if (the_list.size() != 0)
@@ -44,7 +44,7 @@ void Assignment::add(Assignment assignment, list<Assignment>& the_list) // Add a
 	}
 }
 
-void Assignment::remove(Assignment& assignment, list<Assignment>& the_list) // Remove assignment from list 
+void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_list) // Remove assignment from list 
 {
 	the_list.remove(assignment);
 }
