@@ -14,29 +14,6 @@ list<Assignment> completed_list; // List for completed
 int late_count = 0;
 string file_to_read; // File to read in
 
-
-
-bool& operator ==(Assignment& lhs, Assignment& rhs) // Used for determining equality of assignments
-{
-	bool equal;
-	equal = (lhs.getAssignedDate() == rhs.getAssignedDate() && lhs.getDesc() == rhs.getDesc() &&
-		lhs.getDueDate() == rhs.getDueDate() && lhs.getStatus() == rhs.getStatus());
-	return equal;
-}
-
-ostream& operator <<(ostream out, Date& out_date) // Stream out the display data of a Date
-{
-	out << out_date.getMonth() << "-" << out_date.getDay() << "-" << out_date.getYear();
-	return out;
-}
-
-ostream& operator <<(ostream& out, Assignment& out_assign) // Stream out the display data of an Assignment
-{
-	out << out_assign.getDueDate() << out_assign.getDesc() << out_assign.getAssignedDate() << out_assign.getStatus();
-	return out; // Need to overload << operator to get it to work with the data types we are sending it.
-}
-
-
 void UserInterface::fileRead(){
 	std::cout << "Type in the file name: " << endl;
 	cin >> file_to_read;
@@ -59,17 +36,13 @@ void UserInterface::fileRead(){
 			{
 				add(assignment, completed_list); // Try adding to completed list
 			}
-			else
+			else // Fix this; maybe throw an exception instead of adding the assignment
 			{
 				add(assignment, assigned_list); // Add to assigned by default without proper stat info
 			}
 		}
-
-	
 	fin.close();
 	fout.open("out_assignment.txt");
-
-
 }
 
 void UserInterface::uiLoop(){
