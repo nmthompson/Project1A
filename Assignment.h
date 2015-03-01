@@ -3,48 +3,56 @@
 #include <iostream>
 #include "Date.h"
 
-namespace Status{ // Not sure if we want to put this code in a namespace 
-
-    enum status {Assigned, Completed, Late};
+enum status {Assigned, Completed, Late};
 	
-    status statConvert(string& str){ // Convert status string to status type
-		try{
+status statConvert(string& str){ // Convert status string to status type
+    try{
 
-	        if (str == "assigned"){
-                return Assigned;
-	        }
-	        else if (str == "completed"){
-                return Completed;
-	        }
-	        else if (str == "late"){
-	            return Late;
-	        }
-	        else{
-	           throw std::exception("The assignment status is not valid");
-	        }
-		}
-		catch(const exception& e) // Error caught; the status isn't valid
-		{
-			std::cout << e.what() << endl;
-		}
-	};
-};
+    if (str == "assigned"){
+        return Assigned;
+	}
+	else if (str == "completed"){
+        return Completed;
+	}
+	else if (str == "late"){
+	    return Late;
+	}
+	else{
+	    throw std::exception("The assignment status is not valid");
+    }
+    } 
+	catch(const exception& e){ // Error caught; the status isn't valid
+	    std::cout << e.what() << endl;
+	}
+}
+string strConvert(status& stat){ // Convert a stat back into a string for printing
+    if (stat == Assigned){
+        return "assigned";
+	}
+	else if (stat == Completed){
+        return "completed";
+	}
+	else {
+	    return "late";
+	}
+}
+
 
 class Assignment
 {
 public:
 	Assignment(string desc, Date due, Date assigned, status s = Assigned){}
-	string getDesc(){ return desc; }
-	Date getAssignedDate() { return assigned; }
-	Date getDueDate(){ return due; }
-	Date getCompletedDate(){ return completed; }
-	status getStatus(){ return s; }
+	string getDesc()const{ return desc; }
+	Date getAssignedDate()const{ return assigned; }
+	Date getDueDate()const{ return due; }
+	Date getCompletedDate()const{ return completed; }
+	status getStatus()const{ return s; }
 	void setDesc(string descr){ desc = descr; }
 	void setDueDate(Date dueWhen){ due = dueWhen; }
 	void setCompletedDate(Date done){completed = done; }
 	void setStatus(status SetStatus){ s = SetStatus; }
-
-	string dateString(Date date){ // Convert date to a string for printing
+	
+	string dateString(Date& date){ // Convert date to a string for printing
 		return date.toString();
 	}
 
@@ -57,31 +65,32 @@ public:
 		}
 	}
 
-	bool >(Assignment& other){ // Compare one assignment due date with another for use in sorting an assignment list
-		if (this->getDueDate() > other->getDueDate()){
+	bool operator >(const Assignment& other) const { // Compare one assignment due date with another for use in sorting an assignment list
+		if (getDueDate() > other.getDueDate()){
 			return true;
 		}
 		else{
 			return false;
 		}
 	}
-
-	bool operator ==(Assignment& other){ // See if two assignments are equal; if they are, one needs to be discarded
-	    return (assigned() == other->getAssignedDate() && desc == other->getDesc() &&
-		    due == other->getDueDate() && s == other.getStatus()); // May not need the "this" pointer
+	
+	bool operator ==(const Assignment& other) const { // See if two assignments are equal; if they are, one needs to be discarded
+	    return (assigned == other.getAssignedDate() && desc == other.getDesc() &&
+		    due == other.getDueDate() && s == other.getStatus()); // May not need the "this" pointer
     }
-
-	bool operator >=(Assignment& other){ // See if two assignments have a greater than or equal relationship
-		return ((*this) > other || (*this) == other))
+	
+	bool operator >=(const Assignment& other) const { // See if two assignments have a greater than or equal relationship
+		return ((*this) > other || (*this) == other);
 	}
 
-	ostream operator <<() // Stream out the display data of an Assignment
-    {
-		if ((!this->isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
-			                          // completion date 
-			return << this->dateString(due) << desc << this->dateString(assigned) << s;
+	ostream& operator <<(ostream& out) { // Stream out the display data of an Assignment
+		if ((!isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
+			                          // completion date
+			out << dateString(due) << desc << dateString(assigned) << strConvert(s);
+			return out;
 		}
-	    return << this->dateString(due) << desc << this->dateString(assigned) << dateString(completed) << s;
+	    out << dateString(due) << desc << dateString(assigned) << dateString(completed) << strConvert(s);
+		return out;
     }
 
 private:
