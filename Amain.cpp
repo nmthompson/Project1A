@@ -11,7 +11,7 @@ void iSort(list<Assignment>& the_list)
 {
 	list<Assignment>::iterator iter;
 	list<Assignment>::iterator _iter;
-	Assignment temp;
+	Assignment temp; //Mine is saying there needs to be a default constructor for assignment?
 	Assignment nextTemp;
 	for (_iter = the_list.begin(); _iter != the_list.end(); _iter++)
 	{
