@@ -1,6 +1,7 @@
 #include "Date.h"
 #include "StringTokenizer.h"
 #include "Assignment.h"
+#include "AssignmentManager.h"
 #include "UserInterface.h"
 #include "AssignmentManager.h"
 #include <fstream>
@@ -11,6 +12,9 @@ using namespace std;
 
 list<Assignment> assigned_list; // List for assigned assignments
 list<Assignment> completed_list; // List for completed assignments
+list<Assignment>::iterator assigned_iter; // Iterators for assigned and completed lists moved to global 
+list<Assignment>::iterator completed_iter;
+AssignmentManager manager; // Manager of the assignments and their lists
 
 void UserInterface::fileRead(){
 	string file_to_read; // File to read in
@@ -24,15 +28,15 @@ void UserInterface::fileRead(){
 		}
 		string line;
 		while (getline(fin, line)){ // There's a line that can be read in
-			Assignment assignment = createAssignment(line);
+			Assignment assignment = manager.createAssignment(line);
 			if (assignment.getStatus() == Assigned){
-				add(assignment, assigned_list); // Try adding to assigned list
+				manager.add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
 			}
 			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
-				add(assignment, completed_list); // Try adding to completed list
+				manager.add(assignment, completed_list, completed_iter); // Try adding to completed list
 			}
 			else{ // Fix this; maybe throw an exception instead of adding the assignment
-				add(assignment, assigned_list); // Add to assigned by default without proper stat info
+				manager.add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
 			}
 		}
 	fin.close();
@@ -41,9 +45,6 @@ void UserInterface::fileRead(){
 void UserInterface::uiLoop(){
 	ofstream fout;
 	int choice;
-	list<Assignment>::iterator assigned_iter;
-	list<Assignment>::iterator completed_iter;
-	AssignmentManager manager;
 
 	fout.open("assignment.txt"); // Create a file to be written to - if the same name as the input file,
 	                             // overwrite the input file
@@ -68,13 +69,16 @@ void UserInterface::uiLoop(){
 			break;
 		case 2: // Add an assignment to either the assigned or completed list
 			{
-			Assignment assignment = manager.createAssignment(); // Manager creates the assignment
-			manager.add(assignment); // Manager tries to store the assignment in a list
+			string str_assign;
+	        cout << "Type an assignment: " << endl;
+	        cin >> str_assign;
+			Assignment assignment = manager.createAssignment(str_assign); // Manager creates the assignment
+			manager.add(assignment, assigned_list, assigned_iter); // Manager tries to store the assignment in a list
 			break;
 			}
 		case 3: // Complete an assignment
 			{
-			    manager.complete(assigned_list, assigned_iter);
+			    manager.complete(assigned_list, completed_list, assigned_iter);
 			break;
 			}
 		case 4: // Edit an assignment
