@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Date.h"
 
-namespace Status{ // Not sure if we want to put this code 
+namespace Status{ // Not sure if we want to put this code in a namespace 
 
     enum status {Assigned, Completed, Late};
 	
@@ -77,7 +77,8 @@ public:
 
 	ostream operator <<() // Stream out the display data of an Assignment
     {
-		if ((!this->isCompleted())) { // If assignment is not completed, don't try to print out the nonexistent completion date 
+		if ((!this->isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
+			                          // completion date 
 			return << this->dateString(due) << desc << this->dateString(assigned) << s;
 		}
 	    return << this->dateString(due) << desc << this->dateString(assigned) << dateString(completed) << s;

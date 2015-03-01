@@ -1,6 +1,7 @@
 #include "Date.h"
 #include "Assignment.h"
 #include <iostream>
+#include <fstream>
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 
@@ -9,8 +10,7 @@ using namespace std;
 class UserInterface{
 	//I think my syntax might be off and my logic as a result for these getters and setters
 public:
-	UserInterface(){
-	}
+	UserInterface(){}
 	//void setChoice(int user_choice){
 	//	choice = user_choice;
 	//}
@@ -25,5 +25,8 @@ public:
 	//}
 	void uiLoop();
 	void fileRead();
+private:
+	string file_read_in;
+	string file_read_out;
 };
 #endif
