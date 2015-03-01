@@ -1,7 +1,5 @@
 #include "AssignmentManager.h"
-#include "StringTokenizer.h"
-#include <string>
-
+using namespace std;
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
     String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
 

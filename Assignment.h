@@ -1,7 +1,7 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include "Date.h"
+#include "UserInterface.h"
+
+using namespace std;
 
 enum status {Assigned, Completed, Late};
 	
@@ -18,11 +18,11 @@ status statConvert(string& str){ // Convert status string to status type
 	    return Late;
 	}
 	else{
-	    throw std::exception("The assignment status is not valid");
+	    throw exception("The assignment status is not valid");
     }
     } 
 	catch(const exception& e){ // Error caught; the status isn't valid
-	    std::cout << e.what() << endl;
+	    cout << e.what() << endl;
 	}
 }
 string strConvert(status& stat){ // Convert a stat back into a string for printing
