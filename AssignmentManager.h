@@ -1,6 +1,8 @@
 #pragma once
 #include "UserInterface.h"
 
+class Assignment;
+
 ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display data of an Assignment
     status stat = rhs.getStatus();
     if ((!rhs.isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
