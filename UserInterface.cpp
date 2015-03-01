@@ -2,6 +2,7 @@
 #include "StringTokenizer.h"
 #include "Assignment.h"
 #include "UserInterface.h"
+#include "AssignmentManager.h"
 #include <fstream>
 #include <list>
 #include <iostream>
