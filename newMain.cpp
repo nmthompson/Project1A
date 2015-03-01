@@ -7,8 +7,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 int main()
 {
 	char y_or_n; // For assignment file prompt
