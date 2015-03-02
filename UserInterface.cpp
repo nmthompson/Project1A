@@ -1,5 +1,5 @@
 #include "UserInterface.h"
-
+#include <list>
 list<Assignment> assigned_list; // List for assigned assignments
 list<Assignment> completed_list; // List for completed assignments
 list<Assignment>::iterator assigned_iter; // Iterators for assigned and completed lists moved to global 

@@ -1,12 +1,5 @@
 #pragma once
-#include "Date.h"
-#include "StringTokenizer.h"
-#include "Assignment.h"
 #include "AssignmentManager.h"
-#include <fstream>
-#include <string>
-#include <list>
-#include <iostream>
 
 using namespace std;
 

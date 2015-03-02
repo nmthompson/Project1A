@@ -1,7 +1,5 @@
 #pragma once
-#include "UserInterface.h"
-
-class Assignment;
+#include "Assignment.h"
 
 ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display data of an Assignment
     status stat = rhs.getStatus();
