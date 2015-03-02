@@ -25,7 +25,7 @@ status statConvert(string& str){ // Convert status string to status type
     }
     } 
     catch(const exception& e){ // Error caught; the status isn't valid
-        return Assigned;
+		cout << e.what();
     }
 }
 string strConvert(status& stat){ // Convert a stat back into a string for printing

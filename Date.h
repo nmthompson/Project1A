@@ -44,6 +44,8 @@ public:
             return to_string(month) + "/" + to_string(day) + "/" + to_string(year);
         case DateFormat::Standard:
             return to_string(year) + "/" + to_string(month) + "/" + to_string(day);
+		default:
+			return to_string(month) + "/" + to_string(day) + "/" + to_string(year);
         }
     }
 
@@ -297,9 +299,9 @@ public:
 
 
 private: // Specified the int type to long long unsigned for unambiguous calls to to_string function
-    long long unsigned int year;
-    long long unsigned int month;
-    long long unsigned int day;
+    int year;
+    int month;
+    int day;
     DateFormat format;
 
 };
