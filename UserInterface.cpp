@@ -34,7 +34,7 @@ void UserInterface::fileRead(){
 
 void UserInterface::uiLoop(){
     ofstream fout;
-    int choice;
+    int choice = 0;
 
     fout.open("assignment.txt"); // Create a file to be written to - if the same name as the input file,
                                  // overwrite the input file
