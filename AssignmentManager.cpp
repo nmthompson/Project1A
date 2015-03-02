@@ -1,5 +1,53 @@
 #include "AssignmentManager.h"
 
+ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display data of an Assignment
+	status stat = rhs.getStatus();
+	if ((!rhs.isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
+		// completion date
+		out << rhs.dateString(rhs.getDueDate()) << rhs.getDesc() << rhs.dateString(rhs.getAssignedDate())
+			<< strConvert(stat);
+		return out;
+	}
+	out << rhs.dateString(rhs.getDueDate()) << rhs.getDesc() << rhs.dateString(rhs.getAssignedDate())
+		<< rhs.dateString(rhs.getCompletedDate()) << strConvert(stat);
+	return out;
+}
+
+status statConvert(string& str){ // Convert status string to status type
+	try{
+
+		if (str == "assigned"){
+			return Assigned;
+		}
+		else if (str == "completed"){
+			return Completed;
+		}
+		else if (str == "late"){
+			return Late;
+		}
+		else{
+			throw exception("The assignment status is not valid");
+		}
+	}
+	catch (const exception& e){ // Error caught; the status isn't valid
+		cout << e.what();
+	}
+}
+
+string strConvert(status& stat){ // Convert a stat back into a string for printing
+	if (stat == Assigned){
+		return "assigned";
+	}
+	else if (stat == Completed){
+		return "completed";
+	}
+	else {
+		return "late";
+	}
+}
+
+
+
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
     String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
 
@@ -128,3 +176,4 @@ void AssignmentManager::edit(list<Assignment>& the_list, list<Assignment>::itera
         cout << e.what() << endl;
     }
 }
+

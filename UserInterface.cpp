@@ -6,6 +6,7 @@ list<Assignment>::iterator assigned_iter; // Iterators for assigned and complete
 list<Assignment>::iterator completed_iter;
 AssignmentManager manager; // Manager of the assignments and their lists
 
+
 void UserInterface::fileRead(){
     string file_to_read; // File to read in
     std::cout << "Type in the file name: " << endl;
