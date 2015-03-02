@@ -13,9 +13,8 @@ int main()
         userInterface.fileRead(); //calls to fileRead class
     }
     cout << "Please select what you would like to do: " << endl;
- 
-    userInterface.uiLoop(); //no idea the syntax for C++ for executing an external class with a parameter. 
-                            //java it's create an object of the class and then pass it a parameter to the desired function.
+    userInterface.uiLoop(); //calls to uiloop interface logic
+                           
 
     return 0;
 }

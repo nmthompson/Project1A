@@ -38,7 +38,7 @@ AssignmentManager manager; // Manager of the assignments and their lists
 void UserInterface::fileRead(){
 
 	ifstream file_in;
-	file_in.open("input.txt");
+	file_in.open("input.txt"); //hardcoded for testing purposes.
 	if (file_in.is_open()){
 		string line;
 		while (getline(file_in, line)){
@@ -108,6 +108,7 @@ void UserInterface::uiLoop(){
             
         case 5: // Count late assignments
             cout << "There are " << manager.getLateCount() << " late assignments" << endl;
+			break;
         case 6: // Save the assignments to a file
             if (manager.madeChanges()){ // If change has been made to either of the lists, save the data
                 fout << "Incomplete Assignments" << endl;
@@ -126,6 +127,7 @@ void UserInterface::uiLoop(){
             else{ // If changes have not been made, don't save the data - it's already been saved
                 cout << "Changes have not been made since you last saved" << endl;
             }
+			break;
         case 7: // Quit program
             fout.close(); // Close the file we're writing out saved data to
             continue;

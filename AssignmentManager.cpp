@@ -26,7 +26,7 @@ status statConvert(string& str){ // Convert status string to status type
 			return Late;
 		}
 		else{
-			throw exception("The assignment status is not valid");
+			throw exception("THE ASSIGNMENT STATUS IS NOT VALID\n");
 		}
 	}
 	catch (const exception& e){ // Error caught; the status isn't valid
