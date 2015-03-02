@@ -1,9 +1,14 @@
 #pragma once
 #include <list>
-#include "Enum.h"
+#include <string>
+#include <iostream>
 #include <fstream>
 #include "Date.h"
 #include "StringTokenizer.h"
+
+using namespace std;
+
+enum status { Assigned, Completed, Late };
 
 class Assignment
 {
@@ -57,3 +62,4 @@ private:
     Date assigned;
     Date completed;
 };
+

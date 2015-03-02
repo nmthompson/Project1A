@@ -1,18 +1,10 @@
 #pragma once
 #include "Assignment.h"
 
-ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display data of an Assignment
-    status stat = rhs.getStatus();
-    if ((!rhs.isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
-                                      // completion date
-        out << rhs.dateString(rhs.getDueDate()) << rhs.getDesc() << rhs.dateString(rhs.getAssignedDate()) 
-            << strConvert(stat);
-        return out;
-    }
-    out << rhs.dateString(rhs.getDueDate()) << rhs.getDesc() << rhs.dateString(rhs.getAssignedDate()) 
-        << rhs.dateString(rhs.getCompletedDate()) << strConvert(stat);
-    return out;
-}
+//Function prototypes
+status statConvert(string& str);
+string strConvert(status& stat);
+ostream& operator <<(ostream& out, Assignment& rhs);
 
 class AssignmentManager
 {
