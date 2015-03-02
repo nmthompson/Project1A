@@ -53,8 +53,8 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
 
     string due, descript, assigned, stat_str;
     due = parse_assign.next_token();
-    descript = parse_assign.next_token();
-    assigned = parse_assign.next_token();
+    descript = parse_assign.next_token(); //If there is a space in the desc of an assignment it will take the first word as the desc then the sec will get saved to assigned
+    assigned = parse_assign.next_token(); //throwing off all our data.
     stat_str = parse_assign.next_token();
     statConvert(stat_str); // Convert status to status type 
     
