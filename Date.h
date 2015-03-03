@@ -26,7 +26,7 @@ public:
     Date(DateFormat format = DateFormat::Standard) :format(format){}
 
     
-    Date(string date, DateFormat format = DateFormat::Standard) :format(format){
+    Date(string date, DateFormat format = DateFormat::US) :format(format){
         year = 1; month = 1; day = 1;
 		Date temp;
         temp = parseDate(date, format);
