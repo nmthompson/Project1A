@@ -16,13 +16,13 @@ ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display 
 status statConvert(string& str){ // Convert status string to status type
 	try{
 
-		if (str == "assigned"){
+		if (str == "assigned" || str == "Assigned"){
 			return Assigned;
 		}
-		else if (str == "completed"){
+		else if (str == "completed" || str == "Completed"){
 			return Completed;
 		}
-		else if (str == "late"){
+		else if (str == "late" || str == "Late"){
 			return Late;
 		}
 		else{
@@ -115,6 +115,10 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, 
             }
         }
     }
+	else if (the_list.size() == 0)
+	{
+		the_list.push_front(assignment);
+	}
 }
 
 void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_list){ // Removes an assignment from a 
