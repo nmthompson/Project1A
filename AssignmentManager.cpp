@@ -108,8 +108,8 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, 
                 if (!(assignment == (*r_iter))) // If the assignment being added is not a duplicate, add it
                 {
                     r_iter++; // Increment the iterator to add the assignment to place after the one it was compared to
-					iter = (r_iter+1).base;
-                    the_list.insert(iter, assignment); // Insert the assignment at the iterator's position
+					
+                    the_list.insert(r_iter, assignment); // Insert the assignment at the iterator's position
                     break;
                 }
             }
@@ -119,6 +119,11 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, 
 	{
 		the_list.push_back(assignment);
 	}
+}
+
+list<Assignment>::iterator const = operator()
+{
+
 }
 
 void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_list){ // Removes an assignment from a 
