@@ -50,13 +50,13 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 	string due, descript, assigned, stat_str;
 	
 	cout << "Enter the assignment's description." << endl;
-	cin >> descript;
-	cout << "Enter the assignment's due date. (MM-DD-YEAR)" << endl;
-	cin >> due;
+	getline(cin, descript);
 	cout << "Enter the assignment's assigned date. (MM-DD-YEAR)" << endl;
-	cin >> assigned;
+	getline(cin, assigned);
+	cout << "Enter the assignment's due date. (MM-DD-YEAR)" << endl;
+	getline(cin, due);
 	cout << "Enter the assignment's status. (Assigned, Late, Completed)" << endl;
-	cin >> stat_str;
+	getline(cin, stat_str);
 
 	statConvert(stat_str); // Convert status to status type 
 
