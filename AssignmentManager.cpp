@@ -94,22 +94,23 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
     }
 }
 
-void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter){ 
+void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){ 
     // Adds an assignment to a list
-    if (the_list.size() != 0)
+	list<Assignment>::iterator iter;
+	
+    if (the_list.size() != 0) // Can't compare anything with no values in the list.
     {
-        for (iter = the_list.end(); iter != the_list.begin(); iter--)
-        {
-            if (assignment >= (*iter)){ // If the assignment being added is greater than assignment being pointed to in the list, add it after
-                                      // the assignment being pointed to
-                if (!(assignment == (*iter))) // If the assignment being added is not a duplicate, add it
-                {
-                    iter++; // Increment the iterator to add the assignment to place after the one it was compared to
-                    the_list.insert(iter, assignment); // Insert the assignment at the iterator's position
-                    break;
-                }
-            }
-        }
+		for (iter = the_list.begin(); iter != the_list.end(); iter++) //Start from begining of the list (smallest assigned date values)
+		{
+			if (assignment <= *iter && (!(assignment == (*iter)))) // If the assigned date of the assignment being added is less than the one the iter is on then...
+			{													   
+				iter--; // Decrement the iterator to get ready to insert the assignment after the one it has a larger assigned date, 
+						//but smaller assigned date for the next assignment.
+				the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
+												   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
+				iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
+			}
+		}
     }
 	else if (the_list.size() == 0)
 	{
