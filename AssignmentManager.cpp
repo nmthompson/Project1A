@@ -4,13 +4,13 @@ ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display 
 	status stat = rhs.getStatus();
 	if ((!rhs.isCompleted())) { // If assignment is not completed, don't try to print out the (nonexistent) 
 		// completion date
-		out << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc() << " " << rhs.dateString(rhs.getAssignedDate())
+		out << rhs.dateString(rhs.getAssignedDate()) << " " << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc()
 			<< " " << strConvert(stat) << endl;
 		return out;
 	}
 	else
 	{
-		out << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc() << " " << rhs.dateString(rhs.getAssignedDate())
+		out << rhs.dateString(rhs.getAssignedDate()) << " " << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc()
 			<< " " << strConvert(stat) << " " << rhs.dateString(rhs.getCompletedDate()) << endl;
 	}
 	return out;
@@ -182,8 +182,11 @@ void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_lis
 
 // Displays assignments from a list
 void AssignmentManager::displayList(list<Assignment>& the_list, list<Assignment>::iterator& iter, string type_assign){
-		
-    cout << type_assign << " assignments: " << endl;
+	cout << type_assign << " assignments: " << endl;
+	cout << "Assigned Date - Due Date - Description - Status";
+	if (type_assign == "Completed" || type_assign == "Late" || type_assign == "late" || type_assign == "completed")
+		cout << " - Completed Date" << endl;
+    
     for (iter = the_list.begin(); iter != the_list.end(); iter++)
     {
         cout << (*iter) << " "; 
