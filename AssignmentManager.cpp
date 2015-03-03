@@ -101,7 +101,7 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
 void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){ 
     // Adds an assignment to a list
 	list<Assignment>::iterator iter;
-	
+	bool added = false;
     if (the_list.size() != 0) // Can't compare anything with no values in the list.
     {
 		for (iter = the_list.begin(); iter != the_list.end(); iter++) //Start from begining of the list (smallest assigned date values)
@@ -111,6 +111,7 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 				if (assignment == (*iter)) //If they are equal then just instert after current iter and leave function.
 				{
 					the_list.insert(iter, assignment);
+					added = true;
 					iter = the_list.end();
 				}
 				else //If the assignment being added is less than the current iterator.
@@ -118,6 +119,7 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 					if (iter == the_list.begin()) //If the assignment we need to add is the smallest then push front
 					{
 						the_list.push_front(assignment);
+						added = true;
 					}
 					else
 					{
@@ -125,16 +127,20 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 								//but smaller assigned date for the next assignment.
 						the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
 														   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
+						added = true;
 						iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
 					}
 				}
 			}
 		}
+		if (added == false)
+			the_list.push_back(assignment);
     }
 	else if (the_list.size() == 0)
 	{
 		the_list.push_front(assignment);
 	}
+
 }
 
 void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_list){ // Removes an assignment from a 
