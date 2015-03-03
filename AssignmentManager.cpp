@@ -102,13 +102,22 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
     {
 		for (iter = the_list.begin(); iter != the_list.end(); iter++) //Start from begining of the list (smallest assigned date values)
 		{
-			if (assignment <= *iter && (!(assignment == (*iter)))) // If the assigned date of the assignment being added is less than the one the iter is on then...
-			{													   
-				iter--; // Decrement the iterator to get ready to insert the assignment after the one it has a larger assigned date, 
-						//but smaller assigned date for the next assignment.
-				the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
-												   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
-				iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
+			if (assignment <= *iter) // If the assigned date of the assignment being added is less than the one the iter is on then...
+			{		
+				if (assignment == (*iter)) //If they are equal then just instert after current iter and leave function.
+				{
+					the_list.insert(iter, assignment);
+					iter = the_list.end();
+				}
+				else //If the assignment being added is less than the current iterator.
+				{
+					if (iter != the_list.begin()) //Making sure that we dont decrement the iterator to a place that doesnt exist.
+						iter--; // Decrement the iterator to get ready to insert the assignment after the one it has a larger assigned date, 
+								//but smaller assigned date for the next assignment.
+					the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
+													   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
+					iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
+				}
 			}
 		}
     }
