@@ -36,13 +36,13 @@ status statConvert(string& str){ // Convert status string to status type
 
 string strConvert(status& stat){ // Convert a stat back into a string for printing
 	if (stat == Assigned){
-		return "assigned";
+		return "Assigned";
 	}
 	else if (stat == Completed){
-		return "completed";
+		return "Completed";
 	}
 	else {
-		return "late";
+		return "Late";
 	}
 }
 
@@ -80,13 +80,14 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
     descript = parse_assign.next_token(); //If there is a space in the desc of an assignment it will take the first word as the desc then the sec will get saved to assigned
     assigned = parse_assign.next_token(); //throwing off all our data.
     stat_str = parse_assign.next_token();
-    statConvert(stat_str); // Convert status to status type 
+    
     
     try{ // Try block needed to throw exception for any invalid dates
         Date dueDate(due, US); // Create due date out of a string in US format
         Date assignDate(assigned, US); // Create assigned date out of a string in US format
 
         Assignment assignment(descript, dueDate, assignDate);
+		assignment.setStatus(statConvert(stat_str)); // Convert status to status type, then set it in the assignment object.
         return assignment;
     }
     catch (const exception& e){
@@ -111,19 +112,25 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 				}
 				else //If the assignment being added is less than the current iterator.
 				{
-					if (iter != the_list.begin()) //Making sure that we dont decrement the iterator to a place that doesnt exist.
+					if (iter == the_list.begin()) //If the assignment we need to add is the smallest then push front
+					{
+						the_list.push_front(assignment);
+					}
+					else
+					{
 						iter--; // Decrement the iterator to get ready to insert the assignment after the one it has a larger assigned date, 
 								//but smaller assigned date for the next assignment.
-					the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
-													   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
-					iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
+						the_list.insert(iter, assignment); // Insert assignment where PrevAssignment.assignedDate() < assignemnt.assignedDate()
+														   //and NextAssignemnt.assignedDate() > assignment.assignedDate()
+						iter = the_list.end(); //We just added so in order not to keep adding the current assignment we have to break out of the loop.
+					}
 				}
 			}
 		}
     }
 	else if (the_list.size() == 0)
 	{
-		the_list.push_back(assignment);
+		the_list.push_front(assignment);
 	}
 }
 
