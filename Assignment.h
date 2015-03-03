@@ -42,8 +42,8 @@ public:
         }
     }
 
-    bool operator >(const Assignment& other) const { // Compare one assignment dueDate date with another for use in sorting an assignment list
-        if (getDueDate() > other.getDueDate()){
+    bool operator <(const Assignment& other) const { // Compare one assignment dueDate date with another for use in sorting an assignment list
+        if (getDueDate() < other.getDueDate()){
             return true;
         }
         else{
@@ -56,8 +56,8 @@ public:
             dueDate == other.getDueDate() && assignmentStatus == other.getStatus()); // May not need the "this" pointer
     }
     
-    bool operator >=(const Assignment& other) const { // See if two assignments have a greater than or equal relationship
-        return ((*this) > other || (*this) == other);
+    bool operator <=(const Assignment& other) const { // See if two assignments have a greater than or equal relationship
+        return ((*this) < other || (*this) == other);
     }
 
 private:
