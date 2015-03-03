@@ -21,7 +21,7 @@ public:
     // Complete an assignment
     void complete(list<Assignment>& the_list, list<Assignment>& comp_list, list<Assignment>::iterator& iter); 
     void edit(list<Assignment>& the_list, list<Assignment>::iterator& iter); // Edit an assignment
-
+	void incrementLateCount(){ late_count++; }
     int& getLateCount() {return late_count;} // Gets the current total number of late assignments
     bool& madeChanges() {return lists_change;} // Shows if changes have been made to the lists
     void resetChanges() {lists_change = false;} // After saving the changes, indicates that no new changes have been made yet

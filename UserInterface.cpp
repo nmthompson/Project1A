@@ -25,9 +25,13 @@ void UserInterface::fileRead(){
             if (assignment.getStatus() == Assigned){
                 manager.add(assignment, assigned_list); // Try adding to assigned list
             }
-            else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
+            else if (assignment.getStatus() == Completed){
                 manager.add(assignment, completed_list); // Try adding to completed list
             }
+			else if (assignment.getStatus() == Late){
+				manager.add(assignment, completed_list); // Try adding to completed list
+				manager.incrementLateCount();
+			}
             else{ // Fix this; maybe throw an exception instead of adding the assignment
                 manager.add(assignment, assigned_list); // Add to assigned by default without proper stat info
             }
