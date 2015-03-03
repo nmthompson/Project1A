@@ -51,11 +51,8 @@ string strConvert(status& stat){ // Convert a stat back into a string for printi
 
 Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a string
 	string due, descript, assigned, stat_str, completed;
-	
+	bool comp = false;
 	cout << "Enter the assignment's description." << endl;
-	if (cin.peek() == '\n'){
-		cin.ignore();
-	}
 	getline(cin, descript);
 	cout << "Enter the assignment's assigned date. (MM-DD-YEAR)" << endl;
 	getline(cin, assigned);
@@ -68,16 +65,28 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 	{
 		cout << "Enter the date the assignment was completed" << endl;
 		getline(cin, completed);
+		comp = true;
 	}
 
-	statConvert(stat_str); // Convert status to status type 
+	
 
 	try{ // Try block needed to throw exception for any invalid dates
 		Date dueDate(due, US); // Create due date out of a string in US format
 		Date assignDate(assigned, US); // Create assigned date out of a string in US format
 
-		Assignment assignment(descript, dueDate, assignDate);
-		return assignment;
+		if(comp)
+		{
+			Assignment assignment(descript, dueDate, completed, assignDate);
+			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
+			return assignment;
+		}
+		else
+		{
+			Assignment assignment(descript, dueDate, assignDate);
+			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
+			return assignment;
+		}
+		
 	}
 	catch (const exception& e){
 		cout << e.what() << endl; // Prints "invalid date"
@@ -86,7 +95,7 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
     String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
-
+	bool comp = false;
     string due, descript, assigned, stat_str, completed;
     due = parse_assign.next_token();
     descript = parse_assign.next_token(); //If there is a space in the desc of an assignment it will take the first word as the desc then the sec will get saved to assigned
@@ -94,15 +103,27 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
     stat_str = parse_assign.next_token();
     
 	if (stat_str == "Late" || stat_str == "late" || stat_str == "Completed" || stat_str == "completed")
+	{
 		completed = parse_assign.next_token();
-    
+		comp = true;
+	}
+
     try{ // Try block needed to throw exception for any invalid dates
         Date dueDate(due, US); // Create due date out of a string in US format
         Date assignDate(assigned, US); // Create assigned date out of a string in US format
 
-        Assignment assignment(descript, dueDate, assignDate);
-		assignment.setStatus(statConvert(stat_str)); // Convert status to status type, then set it in the assignment object.
-        return assignment;
+		if (comp)
+		{
+			Assignment assignment(descript, dueDate, completed, assignDate);
+			assignment.setStatus(statConvert(stat_str)); // Convert status to status type, then set it in the assignment object.
+			return assignment;
+		}
+		else
+		{
+			Assignment assignment(descript, dueDate, assignDate);
+			assignment.setStatus(statConvert(stat_str)); // Convert status to status type, then set it in the assignment object.
+			return assignment;
+		}
     }
     catch (const exception& e){
         cout << e.what() << endl; // Prints "invalid date"
@@ -185,6 +206,7 @@ void AssignmentManager::complete(list<Assignment>& the_list, list<Assignment>& c
                 cout << "Type in the completion date: " << endl;
                 cin >> completed;
                 Date completedDate(completed);
+				iter->setCompletedDate(completedDate);
                 if (iter->getDueDate() < completedDate){ // If the completed date is after due date...
                     iter->setStatus(Late); // ...It is late
                     late_count++; 

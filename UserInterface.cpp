@@ -20,6 +20,9 @@ void UserInterface::fileRead(){
             exit(1);
         }
         string line;
+		if (cin.peek() == '\n'){
+			cin.ignore();
+		}
         while (getline(fin, line)){ // There's a line that can be read in
             Assignment assignment = manager.createAssignment(line);
             if (assignment.getStatus() == Assigned){

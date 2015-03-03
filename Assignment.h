@@ -19,14 +19,22 @@ public:
 			assignedDate = assigned;
 			assignmentStatus = status;
 	}
+	Assignment(string desc, Date due, Date assigned, Date completed, status status = Assigned)
+	{
+		description = desc;
+		dueDate = due;
+		assignedDate = assigned;
+		assignmentStatus = status;
+		completedDate = completed;
+	}
     string getDesc()const{ return description; }
     Date getAssignedDate()const{ return assignedDate; }
     Date getDueDate()const{ return dueDate; }
-    Date getCompletedDate()const{ return completed; }
+    Date getCompletedDate()const{ return completedDate; }
     status getStatus()const{ return assignmentStatus; }
     void setDesc(string descriptionr){ description = descriptionr; }
     void setDueDate(Date dueDateWhen){ dueDate = dueDateWhen; }
-    void setCompletedDate(Date done){completed = done; }
+    void setCompletedDate(Date done){completedDate = done; }
     void setStatus(status SetStatus){ assignmentStatus = SetStatus; }
     
     string dateString(Date& date){ // Convert date to a string for printing
@@ -65,5 +73,5 @@ private:
     string description;
     Date dueDate;
     Date assignedDate;
-    Date completed;
+    Date completedDate;
 };
