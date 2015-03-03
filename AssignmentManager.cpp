@@ -73,7 +73,7 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 }
 
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
-    String_Tokenizer parse_assign(str, ","); // Create tokenizer for splitting assignment data
+    String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
 
     string due, descript, assigned, stat_str;
     due = parse_assign.next_token();
