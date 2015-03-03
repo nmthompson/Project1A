@@ -12,7 +12,7 @@ public:
     // Initializes the number of late assignments to 0 and changes to assignment lists to false
     AssignmentManager() {late_count = 0, lists_change = false;}
     Assignment createAssignment(string& str); // Creates an assignments from a string
-
+	Assignment manualCreate(); //Create an assignment from user input
     // Tries to add an assignment to a list
     void add(Assignment& assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter); 
     void remove(Assignment& assignment, list<Assignment>& the_list); // Removes an assignment from a list

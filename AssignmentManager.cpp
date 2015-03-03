@@ -46,10 +46,34 @@ string strConvert(status& stat){ // Convert a stat back into a string for printi
 	}
 }
 
+Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a string
+	string due, descript, assigned, stat_str;
+	
+	cout << "Enter the assignment's description." << endl;
+	cin >> descript;
+	cout << "Enter the assignment's due date. (MM-DD-YEAR)" << endl;
+	cin >> due;
+	cout << "Enter the assignment's assigned date. (MM-DD-YEAR)" << endl;
+	cin >> assigned;
+	cout << "Enter the assignment's status. (Assigned, Late, Completed)" << endl;
+	cin >> stat_str;
 
+	statConvert(stat_str); // Convert status to status type 
+
+	try{ // Try block needed to throw exception for any invalid dates
+		Date dueDate(due, US); // Create due date out of a string in US format
+		Date assignDate(assigned, US); // Create assigned date out of a string in US format
+
+		Assignment assignment(descript, dueDate, assignDate);
+		return assignment;
+	}
+	catch (const exception& e){
+		cout << e.what() << endl; // Prints "invalid date"
+	}
+}
 
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
-    String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
+    String_Tokenizer parse_assign(str, ","); // Create tokenizer for splitting assignment data
 
     string due, descript, assigned, stat_str;
     due = parse_assign.next_token();
