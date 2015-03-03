@@ -8,8 +8,11 @@ ostream& operator <<(ostream& out, Assignment& rhs) { // Stream out the display 
 			<< " " << strConvert(stat) << endl;
 		return out;
 	}
-	out << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc() << " " << rhs.dateString(rhs.getAssignedDate())
-		<< " " << strConvert(stat) << " " << rhs.dateString(rhs.getCompletedDate()) << endl;
+	else
+	{
+		out << rhs.dateString(rhs.getDueDate()) << " " << rhs.getDesc() << " " << rhs.dateString(rhs.getAssignedDate())
+			<< " " << strConvert(stat) << " " << rhs.dateString(rhs.getCompletedDate()) << endl;
+	}
 	return out;
 }
 
@@ -47,7 +50,7 @@ string strConvert(status& stat){ // Convert a stat back into a string for printi
 }
 
 Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a string
-	string due, descript, assigned, stat_str;
+	string due, descript, assigned, stat_str, completed;
 	
 	cout << "Enter the assignment's description." << endl;
 	if (cin.peek() == '\n'){
@@ -58,8 +61,14 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 	getline(cin, assigned);
 	cout << "Enter the assignment's due date. (MM-DD-YEAR)" << endl;
 	getline(cin, due);
-	cout << "Enter the assignment's status. (Assigned, Late, Completed)" << endl;
+	cout << "Enter the assignment's status. (Assigned, Late, or Completed)" << endl;
 	getline(cin, stat_str);
+
+	if (stat_str == "Late" || stat_str == "late" || stat_str == "Completed" || stat_str == "completed")
+	{
+		cout << "Enter the date the assignment was completed" << endl;
+		getline(cin, completed);
+	}
 
 	statConvert(stat_str); // Convert status to status type 
 
@@ -78,12 +87,14 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
     String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
 
-    string due, descript, assigned, stat_str;
+    string due, descript, assigned, stat_str, completed;
     due = parse_assign.next_token();
     descript = parse_assign.next_token(); //If there is a space in the desc of an assignment it will take the first word as the desc then the sec will get saved to assigned
     assigned = parse_assign.next_token(); //throwing off all our data.
     stat_str = parse_assign.next_token();
     
+	if (stat_str == "Late" || stat_str == "late" || stat_str == "Completed" || stat_str == "completed")
+		completed = parse_assign.next_token();
     
     try{ // Try block needed to throw exception for any invalid dates
         Date dueDate(due, US); // Create due date out of a string in US format
