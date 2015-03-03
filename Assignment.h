@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include "Date.h"
-#include "StringTokenizer.h"
 
 using namespace std;
 
@@ -13,23 +12,29 @@ enum status { Assigned, Completed, Late };
 class Assignment
 {
 public:
-    Assignment(string desc, Date due, Date assigned, status s = Assigned){}
-    string getDesc()const{ return desc; }
-    Date getAssignedDate()const{ return assigned; }
-    Date getDueDate()const{ return due; }
+	Assignment(string desc, Date due, Date assigned, status status = Assigned)
+	{
+			description = desc;
+			dueDate = due;
+			assignedDate = assigned;
+			assignmentStatus = status;
+	}
+    string getDesc()const{ return description; }
+    Date getAssignedDate()const{ return assignedDate; }
+    Date getDueDate()const{ return dueDate; }
     Date getCompletedDate()const{ return completed; }
-    status getStatus()const{ return s; }
-    void setDesc(string descr){ desc = descr; }
-    void setDueDate(Date dueWhen){ due = dueWhen; }
+    status getStatus()const{ return assignmentStatus; }
+    void setDesc(string descriptionr){ description = descriptionr; }
+    void setDueDate(Date dueDateWhen){ dueDate = dueDateWhen; }
     void setCompletedDate(Date done){completed = done; }
-    void setStatus(status SetStatus){ s = SetStatus; }
+    void setStatus(status SetStatus){ assignmentStatus = SetStatus; }
     
     string dateString(Date& date){ // Convert date to a string for printing
         return date.toString();
     }
 
     bool isCompleted(){ // Checks to see if the assignment has a completed or late status
-        if ((s == Completed) || (s == Late)){
+        if ((assignmentStatus == Completed) || (assignmentStatus == Late)){
             return true;
         }
         else{
@@ -37,7 +42,7 @@ public:
         }
     }
 
-    bool operator >(const Assignment& other) const { // Compare one assignment due date with another for use in sorting an assignment list
+    bool operator >(const Assignment& other) const { // Compare one assignment dueDate date with another for use in sorting an assignment list
         if (getDueDate() > other.getDueDate()){
             return true;
         }
@@ -47,8 +52,8 @@ public:
     }
     
     bool operator ==(const Assignment& other) const { // See if two assignments are equal; if they are, one needs to be discarded
-        return (assigned == other.getAssignedDate() && desc == other.getDesc() &&
-            due == other.getDueDate() && s == other.getStatus()); // May not need the "this" pointer
+        return (assignedDate == other.getAssignedDate() && description == other.getDesc() &&
+            dueDate == other.getDueDate() && assignmentStatus == other.getStatus()); // May not need the "this" pointer
     }
     
     bool operator >=(const Assignment& other) const { // See if two assignments have a greater than or equal relationship
@@ -56,10 +61,9 @@ public:
     }
 
 private:
-    status s; 
-    string desc;
-    Date due;
-    Date assigned;
+    status assignmentStatus; 
+    string description;
+    Date dueDate;
+    Date assignedDate;
     Date completed;
 };
-
