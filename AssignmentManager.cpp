@@ -96,6 +96,10 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
 
 void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter){ 
     // Adds an assignment to a list
+	if (the_list.size() == 0)
+	{
+
+	}
     if (the_list.size() != 0)
     {
         for (iter = the_list.end(); iter != the_list.begin(); iter--)
@@ -120,6 +124,7 @@ void AssignmentManager::remove(Assignment& assignment, list<Assignment>& the_lis
 
 // Displays assignments from a list
 void AssignmentManager::displayList(list<Assignment>& the_list, list<Assignment>::iterator& iter, string type_assign){
+		
     cout << type_assign << " assignments: " << endl;
     for (iter = the_list.begin(); iter != the_list.end(); iter++)
     {
