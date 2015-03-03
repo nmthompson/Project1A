@@ -10,9 +10,9 @@ AssignmentManager manager; // Manager of the assignments and their lists
 
 void UserInterface::fileRead(){
      // File to read in
-	string userInput;
+	
     std::cout << "Type in the file name: " << endl;
-	getline(cin, userInput);
+	cin >> file_to_read;
     ifstream fin;
     fin.open(file_to_read, std::ifstream::in);
         if (fin.fail()) // If file failed to open/does not exist
