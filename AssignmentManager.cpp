@@ -50,6 +50,9 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 	string due, descript, assigned, stat_str;
 	
 	cout << "Enter the assignment's description." << endl;
+	if (cin.peek() == '\n'){
+		cin.ignore();
+	}
 	getline(cin, descript);
 	cout << "Enter the assignment's assigned date. (MM-DD-YEAR)" << endl;
 	getline(cin, assigned);
