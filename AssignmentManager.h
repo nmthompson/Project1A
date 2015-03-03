@@ -15,7 +15,7 @@ public:
     Assignment createAssignment(string& str); // Creates an assignments from a string
 	Assignment manualCreate(); //Create an assignment from user input
     // Tries to add an assignment to a list
-    void add(Assignment& assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter); 
+    void add(Assignment& assignment, list<Assignment>& the_list); 
     void remove(Assignment& assignment, list<Assignment>& the_list); // Removes an assignment from a list
     // Manage the display of a list of assignments
     void displayList(list<Assignment>& the_list, list<Assignment>::iterator& iter, string type_assign);
