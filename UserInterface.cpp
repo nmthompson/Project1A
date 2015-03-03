@@ -35,32 +35,6 @@ void UserInterface::fileRead(){
     fin.close();
 }
 
-//void UserInterface::fileRead(){
-//
-//	ifstream file_in;
-//	file_in.open("input.txt"); //hardcoded for testing purposes.
-//	if (file_in.is_open()){
-//		string line;
-//		while (getline(file_in, line)){
-//			Assignment assignment = manager.createAssignment(line);
-//			if (assignment.getStatus() == Assigned){
-//				manager.add(assignment, assigned_list, assigned_iter);
-//			}
-//			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
-//				manager.add(assignment, completed_list, completed_iter);
-//			}
-//			else{
-//				return;
-//			}
-//
-//		}
-//		file_in.close();
-//	}
-//	else{
-//			exit(1);	
-//	}
-//}
-
 void UserInterface::uiLoop(){
     ofstream fout;
     int choice = 0;
