@@ -6,60 +6,59 @@ list<Assignment> completed_list; // List for completed assignments
 list<Assignment>::iterator assigned_iter; // Iterators for assigned and completed lists moved to global 
 list<Assignment>::iterator completed_iter;
 AssignmentManager manager; // Manager of the assignments and their lists
-//
-//
-//void UserInterface::fileRead(){
-//    string file_to_read; // File to read in
-//    std::cout << "Type in the file name: " << endl;
-//    cin >> file_to_read;
-//    ifstream fin;
-//    fin.open(file_to_read, std::ifstream::in);
-//        if (fin.fail()) // If file failed to open/does not exist
-//        {
-//			std::cout << "Test:file failed to open" << endl;
-//            exit(1);
-//        }
-//        string line;
-//        while (getline(fin, line)){ // There's a line that can be read in
-//            Assignment assignment = manager.createAssignment(line);
-//            if (assignment.getStatus() == Assigned){
-//                manager.add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
-//            }
-//            else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
-//                manager.add(assignment, completed_list, completed_iter); // Try adding to completed list
-//            }
-//            else{ // Fix this; maybe throw an exception instead of adding the assignment
-//                manager.add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
-//            }
-//        }
-//    fin.close();
-//}
+
 
 void UserInterface::fileRead(){
-
-	ifstream file_in;
-	file_in.open("input.txt"); //hardcoded for testing purposes.
-	if (file_in.is_open()){
-		string line;
-		while (getline(file_in, line)){
-			Assignment assignment = manager.createAssignment(line);
-			if (assignment.getStatus() == Assigned){
-				manager.add(assignment, assigned_list, assigned_iter);
-			}
-			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
-				manager.add(assignment, completed_list, completed_iter);
-			}
-			else{
-				return;
-			}
-
-		}
-		file_in.close();
-	}
-	else{
-			exit(1);	
-	}
+    string file_to_read; // File to read in
+    std::cout << "Type in the file name: " << endl;
+    cin >> file_to_read;
+    ifstream fin;
+    fin.open(file_to_read, std::ifstream::in);
+        if (fin.fail()) // If file failed to open/does not exist
+        {
+            exit(1);
+        }
+        string line;
+        while (getline(fin, line)){ // There's a line that can be read in
+            Assignment assignment = manager.createAssignment(line);
+            if (assignment.getStatus() == Assigned){
+                manager.add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
+            }
+            else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
+                manager.add(assignment, completed_list, completed_iter); // Try adding to completed list
+            }
+            else{ // Fix this; maybe throw an exception instead of adding the assignment
+                manager.add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
+            }
+        }
+    fin.close();
 }
+
+//void UserInterface::fileRead(){
+//
+//	ifstream file_in;
+//	file_in.open("input.txt"); //hardcoded for testing purposes.
+//	if (file_in.is_open()){
+//		string line;
+//		while (getline(file_in, line)){
+//			Assignment assignment = manager.createAssignment(line);
+//			if (assignment.getStatus() == Assigned){
+//				manager.add(assignment, assigned_list, assigned_iter);
+//			}
+//			else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
+//				manager.add(assignment, completed_list, completed_iter);
+//			}
+//			else{
+//				return;
+//			}
+//
+//		}
+//		file_in.close();
+//	}
+//	else{
+//			exit(1);	
+//	}
+//}
 
 void UserInterface::uiLoop(){
     ofstream fout;
