@@ -87,10 +87,7 @@ void UserInterface::uiLoop(){
             break;
         case 2: // Add an assignment to either the assigned or completed list
             {
-            string str_assign;
-            cout << "Type an assignment: " << endl;
-            cin >> str_assign;
-            Assignment assignment = manager.createAssignment(str_assign); // Manager creates the assignment
+            Assignment assignment = manager.manualCreate(); // Creates an assignment from user input
             manager.add(assignment, assigned_list, assigned_iter); // Manager tries to store the assignment in a list
             break;
             }
