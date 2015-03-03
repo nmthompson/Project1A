@@ -10,6 +10,5 @@ public:
     void uiLoop();
     void fileRead();
 private:
-    string file_read_in;
-    string file_read_out;
+	string file_to_read;
 };

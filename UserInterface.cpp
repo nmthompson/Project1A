@@ -9,7 +9,7 @@ AssignmentManager manager; // Manager of the assignments and their lists
 
 
 void UserInterface::fileRead(){
-    string file_to_read; // File to read in
+     // File to read in
     std::cout << "Type in the file name: " << endl;
     cin >> file_to_read;
     ifstream fin;
