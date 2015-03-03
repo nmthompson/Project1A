@@ -94,17 +94,21 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
     }
 }
 
+
+
 void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list, list<Assignment>::iterator& iter){ 
     // Adds an assignment to a list
+	list<Assignment>::reverse_iterator r_iter;
     if (the_list.size() != 0)
     {
-        for (iter = the_list.end(); iter != the_list.begin(); iter--)
+		for (r_iter = the_list.rbegin(); r_iter != the_list.rend(); ++r_iter)
         {
-            if (assignment >= (*iter)){ // If the assignment being added is greater than assignment being pointed to in the list, add it after
+            if (assignment >= (*r_iter)){ // If the assignment being added is greater than assignment being pointed to in the list, add it after
                                       // the assignment being pointed to
-                if (!(assignment == (*iter))) // If the assignment being added is not a duplicate, add it
+                if (!(assignment == (*r_iter))) // If the assignment being added is not a duplicate, add it
                 {
-                    iter++; // Increment the iterator to add the assignment to place after the one it was compared to
+                    r_iter++; // Increment the iterator to add the assignment to place after the one it was compared to
+					iter = (r_iter+1).base;
                     the_list.insert(iter, assignment); // Insert the assignment at the iterator's position
                     break;
                 }

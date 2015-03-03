@@ -1,5 +1,6 @@
 #pragma once
 #include "Assignment.h"
+#include <iterator>
 
 //Function prototypes
 status statConvert(string& str);
