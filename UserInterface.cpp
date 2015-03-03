@@ -22,13 +22,13 @@ void UserInterface::fileRead(){
         while (getline(fin, line)){ // There's a line that can be read in
             Assignment assignment = manager.createAssignment(line);
             if (assignment.getStatus() == Assigned){
-                manager.add(assignment, assigned_list, assigned_iter); // Try adding to assigned list
+                manager.add(assignment, assigned_list); // Try adding to assigned list
             }
             else if (assignment.getStatus() == Completed || assignment.getStatus() == Late){
-                manager.add(assignment, completed_list, completed_iter); // Try adding to completed list
+                manager.add(assignment, completed_list); // Try adding to completed list
             }
             else{ // Fix this; maybe throw an exception instead of adding the assignment
-                manager.add(assignment, assigned_list, assigned_iter); // Add to assigned by default without proper stat info
+                manager.add(assignment, assigned_list); // Add to assigned by default without proper stat info
             }
         }
     fin.close();
@@ -88,7 +88,7 @@ void UserInterface::uiLoop(){
         case 2: // Add an assignment to either the assigned or completed list
             {
 			Assignment assignment = manager.manualCreate(); // Creates an assignment from user input
-            manager.add(assignment, assigned_list, assigned_iter); // Manager tries to store the assignment in a list
+            manager.add(assignment, assigned_list); // Manager tries to store the assignment in a list
             break;
             }
         case 3: // Complete an assignment

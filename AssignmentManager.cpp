@@ -156,7 +156,7 @@ void AssignmentManager::complete(list<Assignment>& the_list, list<Assignment>& c
                 else{
                     iter->setStatus(Completed); // Otherwise it is simply completed
                 }
-                add((*iter), comp_list, iter); // Add to completed list
+                add((*iter), comp_list); // Add to completed list
                 remove((*iter), the_list); // Remove from assigned list
                 lists_change = true; // A change has been made to one or both lists
                 break;
