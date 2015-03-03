@@ -28,7 +28,11 @@ public:
     
     Date(string date, DateFormat format = DateFormat::Standard) :format(format){
         year = 1; month = 1; day = 1;
-        *this = parseDate(date, format);
+		Date temp;
+        temp = parseDate(date, format);
+		day = temp.day;
+		month = temp.month;
+		year = temp.year;
     }
 
 
