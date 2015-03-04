@@ -161,6 +161,7 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 					{
 						the_list.push_front(assignment);
 						added = true;
+						iter = the_list.end();
 					}
 					else
 					{
