@@ -54,6 +54,7 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 	bool comp = false;
 	cout << "Enter the assignment's description." << endl;
 	getline(cin, descript);
+	getline(cin, descript);
 	cout << "Enter the assignment's assigned date. (MM-DD-YEAR)" << endl;
 	getline(cin, assigned);
 	cout << "Enter the assignment's due date. (MM-DD-YEAR)" << endl;
@@ -74,9 +75,9 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 		Date dueDate(due, US); // Create due date out of a string in US format
 		Date assignDate(assigned, US); // Create assigned date out of a string in US format
 
-		if(comp)
+		if (comp) //If the assignment is completed or late, it will have a completed date value, and use a different constructor
 		{
-			Assignment assignment(descript, dueDate, completed, assignDate);
+			Assignment assignment(descript, dueDate, assignDate, completed);
 			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
 			return assignment;
 		}
@@ -94,17 +95,23 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 }
 
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
-    String_Tokenizer parse_assign(str, ", "); // Create tokenizer for splitting assignment data
+    String_Tokenizer parse_assign(str, ","); // Create tokenizer for splitting assignment data
 	bool comp = false;
     string due, descript, assigned, stat_str, completed;
     due = parse_assign.next_token();
-    descript = parse_assign.next_token(); //If there is a space in the desc of an assignment it will take the first word as the desc then the sec will get saved to assigned
-    assigned = parse_assign.next_token(); //throwing off all our data.
+    descript = parse_assign.next_token();
+    assigned = parse_assign.next_token(); 
     stat_str = parse_assign.next_token();
     
+	descript.erase(0, 1);
+	assigned.erase(0, 1); // The next_token() function leaves a whitespace after the ',' char, we then erase it because our functions can not handle that.
+	stat_str.erase(0, 1);
+
+
 	if (stat_str == "Late" || stat_str == "late" || stat_str == "Completed" || stat_str == "completed")
 	{
 		completed = parse_assign.next_token();
+		completed.erase(0, 1);
 		comp = true;
 	}
 
@@ -112,7 +119,7 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
         Date dueDate(due, US); // Create due date out of a string in US format
         Date assignDate(assigned, US); // Create assigned date out of a string in US format
 
-		if (comp)
+		if (comp) //If the assignment is completed or late, it will have a completed date value, and use a different constructor
 		{
 			Assignment assignment(descript, dueDate, completed, assignDate);
 			assignment.setStatus(statConvert(stat_str)); // Convert status to status type, then set it in the assignment object.
@@ -186,10 +193,12 @@ void AssignmentManager::displayList(list<Assignment>& the_list, list<Assignment>
 	cout << "Assigned Date - Due Date - Description - Status";
 	if (type_assign == "Completed" || type_assign == "Late" || type_assign == "late" || type_assign == "completed")
 		cout << " - Completed Date" << endl;
-    
+	else
+		cout << endl;
+
     for (iter = the_list.begin(); iter != the_list.end(); iter++)
     {
-        cout << (*iter) << " "; 
+		cout << (*iter);
     }
     cout << endl;
 }

@@ -70,7 +70,10 @@ void UserInterface::uiLoop(){
         case 2: // Add an assignment to either the assigned or completed list
             {
 			Assignment assignment = manager.manualCreate(); // Creates an assignment from user input
-            manager.add(assignment, assigned_list); // Manager tries to store the assignment in a list
+			if (assignment.getStatus() == 0)
+				manager.add(assignment, assigned_list); // Manager tries to store the assignment in a list
+			else
+				manager.add(assignment, completed_list); // Manager tries to store the assignment in a list
             break;
             }
         case 3: // Complete an assignment
