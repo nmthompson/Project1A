@@ -69,8 +69,6 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 		comp = true;
 	}
 
-	
-
 	try{ // Try block needed to throw exception for any invalid dates
 		Date dueDate(due, US); // Create due date out of a string in US format
 		Date assignDate(assigned, US); // Create assigned date out of a string in US format
@@ -79,19 +77,23 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 		{
 			Assignment assignment(descript, dueDate, assignDate, completed);
 			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
+			lists_change = true;
 			return assignment;
 		}
 		else
 		{
 			Assignment assignment(descript, dueDate, assignDate);
 			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
+			lists_change = true;
 			return assignment;
 		}
-		lists_change = true;
+	
 	}
 	catch (const exception& e){
 		cout << e.what() << endl; // Prints "invalid date"
+		
 	}
+
 }
 
 Assignment AssignmentManager::createAssignment(string& str){ // Create an Assignment out of a string
