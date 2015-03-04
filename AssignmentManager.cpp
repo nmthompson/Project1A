@@ -143,7 +143,19 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
     // Adds an assignment to a list
 	list<Assignment>::iterator iter;
 	bool added = false;
-    if (the_list.size() != 0) // Can't compare anything with no values in the list.
+	if (the_list.size() == 0)
+	{
+		the_list.push_front(assignment);
+	}
+	else if (the_list.size() == 1)
+	{
+		iter = the_list.begin();
+		if (assignment <= *iter)
+			the_list.push_front(assignment);
+		else
+			the_list.push_back(assignment);
+	}
+    else if (the_list.size() > 1) // Can't compare anything with no values in the list.
     {
 		for (iter = the_list.begin(); iter != the_list.end(); iter++) //Start from begining of the list (smallest assigned date values)
 		{
@@ -178,10 +190,7 @@ void AssignmentManager::add(Assignment& assignment, list<Assignment>& the_list){
 		if (added == false)
 			the_list.push_back(assignment);
     }
-	else if (the_list.size() == 0)
-	{
-		the_list.push_front(assignment);
-	}
+	
 
 }
 
