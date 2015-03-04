@@ -209,14 +209,14 @@ void AssignmentManager::complete(list<Assignment>& the_list, list<Assignment>& c
     try{
         string assigned;
         cout << "Type in the assigned date: " << endl;
-        cin >> assigned;
+        getline(cin, assigned);
         Date assignedDate(assigned); // Possible exception here
         for (iter = the_list.begin(); iter != the_list.end(); iter++)
         {
             if (iter->getAssignedDate() == assigned){ // If assignment is found, complete it
                 string completed;
                 cout << "Type in the completion date: " << endl;
-                cin >> completed;
+                getline(cin, completed);
                 Date completedDate(completed);
 				iter->setCompletedDate(completedDate);
                 if (iter->getDueDate() < completedDate){ // If the completed date is after due date...
@@ -243,28 +243,30 @@ void AssignmentManager::edit(list<Assignment>& the_list, list<Assignment>::itera
     try{
         string assigned;
         cout << "Type in the assigned date: " << endl;
-        cin >> assigned;
+        getline(cin, assigned);
         Date assignedDate(assigned); // Possible exception here
         for (iter = the_list.begin(); iter != the_list.end(); iter++)
         {
             if (iter->getAssignedDate() == assigned) // If assignment is found, edit it
             {
-                char yes_no; 
+                string yes_no; 
                 cout << "Edit the due date? (Y/N)" << endl;
-                cin >> yes_no;
+				getline(cin, yes_no);
 
-                if (toupper(yes_no) == 'Y'){
+                if (toupper(yes_no[0]) == 'Y'){
                     string newDue;
                     cout << "Type in the new due date: " << endl;
-                    cin >> newDue;
+                    getline(cin, newDue);
                     Date newDueDate(newDue);
                     iter->setDueDate(newDueDate); // New due date set
                 }
+
                 cout << "Edit the description? (Y/N)" << endl;
-                if (toupper(yes_no) == 'Y'){
+				getline(cin, yes_no);
+                if (toupper(yes_no[0]) == 'Y'){
                     string describe;
                     cout << "Type in the new description: " << endl;
-                    cin >> describe;
+                    getline(cin, describe);
                     iter->setDesc(describe); // New description set
                 }
                 lists_change = true; // A change has been made to the assigned list
