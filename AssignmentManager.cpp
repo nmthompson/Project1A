@@ -87,7 +87,7 @@ Assignment AssignmentManager::manualCreate(){ // Create an Assignment out of a s
 			assignment.setStatus(statConvert(stat_str)); // Convert status to status type 
 			return assignment;
 		}
-		
+		lists_change = true;
 	}
 	catch (const exception& e){
 		cout << e.what() << endl; // Prints "invalid date"
