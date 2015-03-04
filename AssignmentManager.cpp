@@ -100,9 +100,9 @@ Assignment AssignmentManager::createAssignment(string& str){ // Create an Assign
     String_Tokenizer parse_assign(str, ","); // Create tokenizer for splitting assignment data
 	bool comp = false;
     string due, descript, assigned, stat_str, completed;
-    assigned = parse_assign.next_token();
+    due = parse_assign.next_token();
     descript = parse_assign.next_token();
-    due = parse_assign.next_token(); 
+    assigned = parse_assign.next_token(); 
     stat_str = parse_assign.next_token();
     
 	descript.erase(0, 1);
