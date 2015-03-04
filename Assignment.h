@@ -60,8 +60,7 @@ public:
     }
     
     bool operator ==(const Assignment& other) const { // See if two assignments are equal; if they are, one needs to be discarded
-        return (assignedDate == other.getAssignedDate() && description == other.getDesc() &&
-            dueDate == other.getDueDate() && assignmentStatus == other.getStatus()); // May not need the "this" pointer
+        return (getDueDate() == other.getDueDate() ); //Due date is a uniqe identifier 
     }
     
     bool operator <=(const Assignment& other) const { // See if two assignments have a greater than or equal relationship
